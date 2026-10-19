@@ -34,20 +34,23 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython
 
-      - name: Setup Android SDK Environment
+      - name: Setup Android SDK, AIDL & Build-Tools
         run: |
-          # Use GitHub's pre-installed Android SDK and accept licenses globally
-          echo "ANDROID_HOME=/usr/local/lib/android/sdk" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=/usr/local/lib/android/sdk" >> $GITHUB_ENV
+          # Buildozer local SDK directory structure setup
+          BUILDOZER_SDK_DIR="$HOME/.buildozer/android/platform/android-sdk"
+          mkdir -p "$BUILDOZER_SDK_DIR"
+
+          # Symlink pre-installed SDK folders from GitHub runner to Buildozer's folder
+          ln -s /usr/local/lib/android/sdk/build-tools "$BUILDOZER_SDK_DIR/build-tools"
+          ln -s /usr/local/lib/android/sdk/platforms "$BUILDOZER_SDK_DIR/platforms"
+          ln -s /usr/local/lib/android/sdk/platform-tools "$BUILDOZER_SDK_DIR/platform-tools"
           
-          # Accept all Android SDK licenses beforehand
-          mkdir -p /usr/local/lib/android/sdk/licenses
-          echo -e "\n24333702350630826d1900113a723a3107ed6d00\n89330d322059213157217db101470b5da9772578\n7d2452d841303a919345864f45041d7148208954" > /usr/local/lib/android/sdk/licenses/android-sdk-license
+          # Accept licenses
+          mkdir -p "$BUILDOZER_SDK_DIR/licenses"
+          echo -e "\n24333702350630826d1900113a723a3107ed6d00\n89330d322059213157217db101470b5da9772578\n7d2452d841303a919345864f45041d7148208954" > "$BUILDOZER_SDK_DIR/licenses/android-sdk-license"
 
       - name: Build APK with Buildozer
         env:
-          ANDROID_HOME: /usr/local/lib/android/sdk
-          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
           APP_ANDROID_ACCEPT_SDK_LICENSES: '1'
           BUILDOZER_ALLOW_KIVY_BUILD_AS_ROOT: '1'
         run: |

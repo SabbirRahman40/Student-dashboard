@@ -27,6 +27,7 @@ jobs:
 
       - name: Accept Android SDK Licenses & Build APK
         run: |
+          yes | buildozer -v android debug || true
           buildozer -v android debug
 
       - name: Upload APK Artifact

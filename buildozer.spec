@@ -19,8 +19,7 @@ source.include_exts = py,png,jpg,kv,atlas,json
 version = 0.1
 
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy
+requirements = python3,kivy,sqlite3
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -29,7 +28,7 @@ orientation = portrait
 fullscreen = 0
 
 # (list) Permissions
-#android.permissions = INTERNET
+android.permissions = INTERNET
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33

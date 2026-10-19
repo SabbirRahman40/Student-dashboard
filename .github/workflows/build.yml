@@ -34,29 +34,20 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython
 
-      - name: Force Install Android Command Line Tools (Fixes sdkmanager error)
+      - name: Setup Android SDK Environment
         run: |
-          ANDROID_SDK_DIR="$HOME/.buildozer/android/platform/android-sdk"
-          mkdir -p "$ANDROID_SDK_DIR/cmdline-tools"
+          # Use GitHub's pre-installed Android SDK and accept licenses globally
+          echo "ANDROID_HOME=/usr/local/lib/android/sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=/usr/local/lib/android/sdk" >> $GITHUB_ENV
           
-          # Download official command line tools
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
-          unzip -q cmdline-tools.zip
-          
-          # Move to the exact expected path structure
-          rm -rf "$ANDROID_SDK_DIR/cmdline-tools/latest"
-          mv cmdline-tools "$ANDROID_SDK_DIR/cmdline-tools/latest"
-          rm -f cmdline-tools.zip
-
-          # Symlink tools/bin to cmdline-tools/latest/bin so buildozer finds it instantly
-          mkdir -p "$ANDROID_SDK_DIR/tools"
-          ln -s "$ANDROID_SDK_DIR/cmdline-tools/latest/bin" "$ANDROID_SDK_DIR/tools/bin"
-          
-          # Pre-accept licenses
-          yes | "$ANDROID_SDK_DIR/cmdline-tools/latest/bin/sdkmanager" --licenses || true
+          # Accept all Android SDK licenses beforehand
+          mkdir -p /usr/local/lib/android/sdk/licenses
+          echo -e "\n24333702350630826d1900113a723a3107ed6d00\n89330d322059213157217db101470b5da9772578\n7d2452d841303a919345864f45041d7148208954" > /usr/local/lib/android/sdk/licenses/android-sdk-license
 
       - name: Build APK with Buildozer
         env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
+          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
           APP_ANDROID_ACCEPT_SDK_LICENSES: '1'
           BUILDOZER_ALLOW_KIVY_BUILD_AS_ROOT: '1'
         run: |

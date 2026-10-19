@@ -1,0 +1,160 @@
+{
+    "users": {
+        "Sabbir_Rahman": {
+            "password": "232040",
+            "phone": "01700000000"
+        },
+        "Sabbir40": {
+            "password": "12345",
+            "phone": "01914232040"
+        }
+    },
+    "routine": [
+        {
+            "id": 1,
+            "day": "Saturday",
+            "time": "1:10-2:10 PM",
+            "subject": "CSE 2391 - Data Structures",
+            "room": "1004",
+            "reminder_min": 30,
+            "reminder_on": true
+        },
+        {
+            "id": 2,
+            "day": "Saturday",
+            "time": "2:15-3:15 PM",
+            "subject": "ENG 2203 - Advanced English",
+            "room": "924",
+            "reminder_min": 30
+        },
+        {
+            "id": 3,
+            "day": "Sunday",
+            "time": "10:40-11:40 AM",
+            "subject": "EEN 2103 - Circuit Analysis I",
+            "room": "504",
+            "reminder_min": 30,
+            "reminder_on": false
+        },
+        {
+            "id": 4,
+            "day": "Sunday",
+            "time": "1:10-2:10 PM",
+            "subject": "CSE 2391 - Data Structures",
+            "room": "1004",
+            "reminder_min": 30
+        },
+        {
+            "id": 5,
+            "day": "Sunday",
+            "time": "2:15-3:15 PM",
+            "subject": "ENG 2203 - Advanced English",
+            "room": "924",
+            "reminder_min": 30
+        },
+        {
+            "id": 6,
+            "day": "Monday",
+            "time": "8:30-9:30 AM",
+            "subject": "ACC 1305 - Accounting",
+            "room": "501",
+            "reminder_min": 30
+        },
+        {
+            "id": 7,
+            "day": "Monday",
+            "time": "10:40-11:40 AM",
+            "subject": "EEN 2103 - Circuit Analysis I",
+            "room": "607",
+            "reminder_min": 30
+        },
+        {
+            "id": 8,
+            "day": "Monday",
+            "time": "11:45-12:45 PM",
+            "subject": "EEN 2103 - Circuit Analysis I",
+            "room": "607",
+            "reminder_min": 30
+        },
+        {
+            "id": 9,
+            "day": "Monday",
+            "time": "1:10-2:10 PM",
+            "subject": "CSE 2391 - Data Structures",
+            "room": "1004",
+            "reminder_min": 30
+        },
+        {
+            "id": 10,
+            "day": "Tuesday",
+            "time": "8:30-9:30 AM",
+            "subject": "ACC 1305 - Accounting",
+            "room": "503",
+            "reminder_min": 30
+        },
+        {
+            "id": 11,
+            "day": "Tuesday",
+            "time": "2:15-3:15 PM",
+            "subject": "ENG 2203 - Advanced English",
+            "room": "924",
+            "reminder_min": 30
+        },
+        {
+            "id": 12,
+            "day": "Wednesday",
+            "time": "8:30-9:30 AM",
+            "subject": "ACC 1305 - Accounting",
+            "room": "310",
+            "reminder_min": 30
+        },
+        {
+            "id": 13,
+            "day": "Wednesday",
+            "time": "10:40-11:40 AM",
+            "subject": "EEN 2104 - Circuit Lab",
+            "room": "EEE lab-01",
+            "reminder_min": 30
+        },
+        {
+            "id": 14,
+            "day": "Wednesday",
+            "time": "11:45-12:45 PM",
+            "subject": "EEN 2104 - Circuit Lab",
+            "room": "EEE lab-01",
+            "reminder_min": 30
+        },
+        {
+            "id": 15,
+            "day": "Wednesday",
+            "time": "1:10-2:10 PM",
+            "subject": "CSE 2392 - Data Structures Lab",
+            "room": "Com lab-08",
+            "reminder_min": 30
+        },
+        {
+            "id": 16,
+            "day": "Wednesday",
+            "time": "2:15-3:15 PM",
+            "subject": "CSE 2392 - Data Structures Lab",
+            "room": "Com lab-08",
+            "reminder_min": 30
+        }
+    ],
+    "exams": [
+        {
+            "type": "CT 1",
+            "subject": "CSE 2391 - Data Structures",
+            "date": "2026-03-25",
+            "time": "10:00 AM"
+        },
+        {
+            "type": "Mid Exam",
+            "subject": "EEN 2103 - Circuit Analysis",
+            "date": "2026-04-10",
+            "time": "11:30 AM"
+        }
+    ],
+    "tasks": [],
+    "albums": {}
+}
